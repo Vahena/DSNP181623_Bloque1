@@ -2,37 +2,57 @@
 
     Sub Main()
         While (True)
-            Try
-                Dim edad As Byte
 
-                Console.WriteLine("Ingrese su edad:")
-                edad = Console.ReadLine
-
-                Select Case edad
-                    Case 0 To 17
-                        Console.WriteLine("Eres menor de edad")
-                    Case 18 To 127
-                        Console.WriteLine("Eres mayor de edad")
-                    Case Else
-                        Console.WriteLine("Deberian darte un record Guiness!")
-                End Select
+            Console.WriteLine("Ejercicios")
+            Console.WriteLine("1- Menor o mayor de edad")
+            Console.WriteLine("2- Positivo o Negativo")
+            Console.WriteLine("3- Descuento")
+            Console.WriteLine("4- Suma de n hasta m")
+            Console.WriteLine("5- Tablas de multiplicar")
+            Console.WriteLine("Escriba el numero de ejercicio o presione (s) si desea salir:")
 
 
+            Dim opcion As String
+            opcion = Console.ReadLine
 
-                Console.WriteLine("Si desea salir presione (s) si no enter:")
-                Dim salir As ConsoleKeyInfo = Console.ReadKey()
-                If salir.Key = ConsoleKey.S Then
-                    Return
-                ElseIf salir.Key = ConsoleKey.Enter Then
-                End If
-            Catch x As Exception
-                Console.WriteLine("Ingrese valores enteros")
-            End Try
+            Select Case opcion
+                Case 1
+                    Console.Clear()
+                    Ejercicio.Ejercicio1()
+
+                Case 2
+                    Console.Clear()
+                    Ejercicio2.Ejercicio2()
+
+                Case 3
+                    Console.Clear()
+                    Ejercicio3.Ejercicio3()
+
+                Case 4
+                    Console.Clear()
+                    Ejercicio4.Ejercicio4()
+
+                Case 5
+                    Console.Clear()
+                    Ejercicio5.ejercicio5()
+
+                Case "s"
+                    Exit While
+                Case "S"
+                    Exit While
+                Case Else
+                    Console.WriteLine("Error--Indique el numero de ejercicio. Presione enter para continuar o (s) para salir")
+            End Select
+
+            Dim continuar As ConsoleKeyInfo = Console.ReadKey
+            If continuar.Key = ConsoleKey.Enter Then
+                Console.Clear()
+            ElseIf continuar.Key = ConsoleKey.S Then
+                Return
+            End If
 
         End While
 
-        Console.ReadLine()
 
     End Sub
-
 End Module
